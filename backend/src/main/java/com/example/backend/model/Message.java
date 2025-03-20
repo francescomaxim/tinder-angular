@@ -21,6 +21,8 @@ public class Message {
     private User userSender;
     @OneToOne
     private User userReceiver;
+    @OneToOne
+    private Match match;
 
     private String content;
     private LocalDateTime dateTime;
