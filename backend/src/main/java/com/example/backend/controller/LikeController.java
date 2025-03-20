@@ -19,7 +19,11 @@ public class LikeController {
 
     @PostMapping("/addlike")
     public ResponseEntity<Like> addlike(@RequestBody Like like) {
-        Like newLike = likeService.addLike(like);
-        return new ResponseEntity<>(newLike, HttpStatus.CREATED);
+        try {
+            Like newLike = likeService.addLike(like);
+            return new ResponseEntity<>(newLike, HttpStatus.CREATED);
+        }catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }
