@@ -33,13 +33,9 @@ public class LikeControllerTest {
     public void testAddLike_Success() throws Exception {
         // Obiectul de intrare; setările suplimentare se pot adăuga după nevoie
         Like inputLike = new Like();
-        // Exemplu: inputLike.setLiked(true);
-
-        // Obiectul așteptat după salvare, cu id generat
         Like savedLike = new Like();
         savedLike.setId(1L);
 
-        // Simulăm comportamentul serviciului: pentru orice obiect de tip Like, se întoarce savedLike
         Mockito.when(likeService.addLike(any(Like.class))).thenReturn(savedLike);
 
         // Efectuăm cererea POST și verificăm statusul și conținutul JSON
